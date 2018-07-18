@@ -1,0 +1,15 @@
+#footer{
+    margin-top: 20px;
+    border: 1px blue solid;
+    background-color: beige;
+    padding: 10px;
+    border-radius: 10px 10px 10px 10px;
+   
+}
+
+#footer_txt{
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+
+}
