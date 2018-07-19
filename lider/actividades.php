@@ -50,7 +50,7 @@
 $(document).ready(function(){
     $('#id_proyecto').on('change',function(){
         var id_proyecto = $(this).val();
-        alert(id_proyecto);
+        // alert(id_proyecto);
         if(id_proyecto){
             $.ajax({
                 type:'POST',

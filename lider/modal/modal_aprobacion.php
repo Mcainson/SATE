@@ -57,8 +57,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <span class="close">&times;</span>
 
   <div id="aprobado"></div>
-  
+  </div>
+  </div>
 
+
+
+
+
+
+
+  </body>
+  </html>
  
 
  

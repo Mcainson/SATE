@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
                 <th>Estatus</th>
                 <th>Calificacion</th>
                 <th>ACTION</th>
-                <th>SUBIR</th>
+            
             </tr><?php
    
     while($row = $result->fetch_assoc()) {
@@ -86,7 +86,7 @@ if ($result->num_rows > 0) {
                     ?>
                 
 
-               <a class="modalsubir" href="#"><i class="material-icons">description</i>
+               <a class="modalsubir" href="#"><i class="material-icons">attachment</i>
                <input type="hidden" id="id_actividad" value="<?php echo $row["id_actividades"] ?>"/>
                
                <a/>
@@ -94,19 +94,10 @@ if ($result->num_rows > 0) {
                 
                 <input type="hidden" id="estatus" value="<?php echo $row["estatus"] ?>"/>
                                
-                </td>
-                <td>
-                <!-- <div id="upload">
-                <form id="form" method="post" enctype="multipart/form-data">
-                <input id="uploadImage" type="file" accept="image/*" name="fileToUpload" />
-                <input type="hidden" name="id_actividad" value=""/>
-            
-                <input type="submit" value="Upload"/>
               
-                </form>
-                </div>
-                <div id="err"></div> -->
-                
+                <a class="modalcomentario" href="#"><i class="material-icons">insert_comment</i>
+                <input type="hidden" id="id_actividad" value="<?php echo $row["id_actividades"] ?>"/>
+                </a>      
                 </td>
                
                 </tr>
@@ -131,7 +122,7 @@ $conn->close();
                alert('ok');
                id_actividad=''
                id_actividad = $(this).children('#id_actividad').val();
-		        alert(id_actividad);
+		       
 
 		    $.ajax({
                 type:'POST',
@@ -144,15 +135,33 @@ $conn->close();
                   
                   
                 }
-            }); 
-            
-	
-      
-	   
-       
+            });        
    });
 
-      $(document).on('click','.close',function () {
+       $(document).on('click','.modalcomentario',function () {
+       
+               id_actividad=''
+               id_actividad = $(this).children('#id_actividad').val();
+		 
+
+		    $.ajax({
+                type:'POST',
+                url:'ajax/comentario.php',
+                data:{id_actividad:id_actividad},
+                
+                success:function(data){
+                    $('#result').html(data);
+					$('#subir').css({'display':'block'});
+                  
+                  
+                }
+            });        
+   });
+
+
+
+
+$(document).on('click','.close',function () {
 
 $('#subir').css({'display':'none'});
   

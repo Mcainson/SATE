@@ -58,26 +58,22 @@ if ($result->num_rows > 0) {
         <td>
             
             <?php
+                if ($row["estatus"]==5){?>                    
+                    <a href="<?php echo 'sate/'.$row["ruta"] ?>" download><i class="material-icons">archive</i><a/>                  
 
-                if ($row["estatus"]==5) {?>
-                    
-                    <a href="<?php echo 'sate/'.$row["ruta"] ?>" download><i class="material-icons">archive</i><a/>
-                    
-
-                <?php
+            <?php
                 }
-                                if ($row["estatus"]==1 && $row["id_estudiante"]==0) {?>
+                if ($row["estatus"]==1 && $row["id_estudiante"]==0) {?>
                     <a class="openmodal" href="#"><i class="material-icons">description</i>
                         <input type="hidden" id="modal_open" value="<?php echo $row["id_proyecto"] ;?>">
                         <input type="hidden" id="actividad" value="<?php echo $row["id_actividades"] ;?>">
-                    </a>
-                    
+                    </a>             
                
             <?php
                  include('../modal/modal_actividad.php');   }
                 if ($row["estatus"]==2){?>    
                    <a class="aprobado" href="#"><i class="material-icons">done</i>                   
-                    <input type="hidden" id="id_actividad" value="<?php echo $row["id_actividades"] ;?>">
+                        <input type="hidden" id="id_actividad" value="<?php echo $row["id_actividades"] ;?>">
                    </a>
                    <a href="<?php echo 'sate/'.$row["ruta"] ?>" download><i class="material-icons">archive</i><a/>
             <?php 
@@ -85,8 +81,12 @@ if ($result->num_rows > 0) {
                 }
                    
             ?>
-                     
-                        
+                     <!-- Button para ver comentario de las actividades -->
+                     <a class="comentario" href="#"><i class="material-icons">insert_comment</i>                   
+                        <input type="hidden" id="id_actividad" value="<?php echo $row["id_actividades"] ;?>">
+                   
+                   </a>  
+                   <?php  include('../modal/modal_aprobacion.php');   ?>   
         </td>
     </tr>
 
@@ -107,14 +107,11 @@ $conn->close();
 ?>
 
     <script>
-     $(document).on('click','.openmodal',function (id_editar) {
-               alert('ok');
+     $(document).on('click','.openmodal',function (id_editar) {              
                id_actividad=''
                id_proyecto='';
                id_proyecto = $(this).children('#modal_open').val();
                id_actividad = $(this).children('#actividad').val();
-		 alert(id_actividad);
-
 		    $.ajax({
                 type:'POST',
                 url:'ajax/combo.php',
@@ -127,49 +124,46 @@ $conn->close();
                   
                 }
             }); 
-            
-	
-      
-	   
-       
-   });
+                   
+     });
 
-      $(document).on('click','.close',function () {
+    $(document).on('click','.close',function () {
 
-$('#editar').css({'display':'none'});
+        $('#editar').css({'display':'none'});
   
-});
+     });
 
-</script>
-
-
-            <script>
             $(document).on('click','.aprobado',function (id_editar) {
-                    alert('ok');
-                    id_actividad='';             
-                    
+                    id_actividad='';               
                     id_actividad = $(this).children('#id_actividad').val();
-                alert(id_actividad);
-
-                    $.ajax({
+                        $.ajax({
                         type:'POST',
                         url:'ajax/aprobacion.php',
-                        data:{id_actividad:id_actividad},
-                        
+                        data:{id_actividad:id_actividad},                        
                         success:function(data){
                             $('#aprobado').html(data);
                             $('#aprobar').css({'display':'block'});
                         }
                     }); 
-                    
             
-            
-            
-            
-        });
+            });
 
-            $(document).on('click','.close',function () {
+              $(document).on('click','.comentario',function (id_editar) {
+                    id_actividad='';               
+                    id_actividad = $(this).children('#id_actividad').val();
+                        $.ajax({
+                        type:'POST',
+                        url:'ajax/comentario.php',
+                        data:{id_actividad:id_actividad},                        
+                        success:function(data){
+                            $('#aprobado').html(data);
+                            $('#aprobar').css({'display':'block'});
+                        }
+                    }); 
+            
+            });
 
+        $(document).on('click','.close',function () {
         $('#aprobar').css({'display':'none'});
         
         });
