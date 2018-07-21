@@ -10,7 +10,7 @@ $id_editar = $_POST['id_editar'];
 
 $sql = "SELECT * FROM proyecto WHERE id_proyecto= $id_editar";
 $result = $conn->query($sql);
-var_dump($sql); 
+
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {

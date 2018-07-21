@@ -28,6 +28,15 @@ $fila=mysqli_fetch_array($rezilta,MYSQLI_ASSOC);
 ?>
 
     <textarea rows="4" cols="80" disabled><?php echo $fila['Descripcion']?></textarea>
+    <form id="form" method="post" enctype="multipart/form-data">
+                <input id="uploadImage" type="file" accept="image/*" name="fileToUpload" /><br>  
+                <input type="hidden" name="id_proyecto" value="<?php echo $id_proyecto ?>">
+
+                <input class="submit_button2" type="submit" value="subir proyecto"/>
+
+               
+                </form>
+                <div id="err"></div>
 
 
 <?php
@@ -168,7 +177,41 @@ $conn->close();
         
         });
 
-        </script>
+   
+$(document).ready(function (e) {
+
+ $("#form").on('submit',(function(e) {
+    var parametros = $(this).serialize();
+   
+  e.preventDefault();
+  $.ajax({
+        url: "ajax/upload.php",
+        type: "POST",
+        data:  new FormData(this),parametros,
+        contentType: false,
+        cache: false,
+        processData:false,
+          
+   success: function(data){
+    $("#err").html("");
+    $("#err").html(data);
+    $('#upload').hide();
+   
+      },
+     error: function(e){
+
+
+    }          
+    });
+ }));
+
+
+
+
+});
+</script>
+
+
 
 </body>
 </html>

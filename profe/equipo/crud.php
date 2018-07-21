@@ -27,11 +27,12 @@
 			<div id="resultados"></div>
 			<div class='outer_div'></div>
 		
-			<?php include('modals/add_estudiante.php'); ?>
+		
 
 		
             
 	
 	
-	<script src="js/script.js"></script>
+
 	<?php include('modals/add_estudiante.php'); ?>
+	<script src="js/script.js"></script>

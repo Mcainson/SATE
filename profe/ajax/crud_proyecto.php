@@ -141,23 +141,17 @@ $.ajax({
     });
 });
 
- $(document).on('click','.editar_id',function (id_editar) {
-               alert('ok');
+ $(document).on('click','.editar_id',function (id_editar) {        
 			   id_editar='';
-         id_editar = $(this).children('#id_editar').val();
-		 alert(id_editar);
-
+         id_editar = $(this).children('#id_editar').val();	
 		    $.ajax({
                 type:'POST',
                 url:'ajax/combo.php',
-                data:{id_editar},
-                
+                data:{id_editar},                
                 success:function(data){
                     $('#result').html(data);
-					$('#editar').css({'display':'block'});
-                  
-                  
-                }
+					$('#editar').css({'display':'block'});                  
+                                  }
             }); 
             
 	

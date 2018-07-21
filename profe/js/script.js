@@ -1,14 +1,13 @@
 
-
 $(function() {
-    load(1);
+  load(1);
 });
 
-function load(page){
+function load(){
     var query=$("#q").val();
     var id_profesor=$("#id_profesor").val();
-    var per_page=10;
-    var parametros = {"page":page,'query':query,'id_profesor':id_profesor,'per_page':per_page};
+  
+    var parametros = {'query':query,'id_profesor':id_profesor};
     $("#loader").fadeIn('slow');
     $.ajax({
         url:'ajax/crud_alumno.php',
@@ -19,6 +18,7 @@ function load(page){
         success:function(data){
             $(".outer_div").html(data).fadeIn('slow');
             $("#loader").html("");
+            load(1);
         }
     })
 }
@@ -39,7 +39,7 @@ $("#add_estudiante").submit(function( event ) {
                   
               $("#resultados").html(datos);
      
-              load(1);
+        
             
               close_modal();
             }
@@ -65,6 +65,7 @@ $("#add_estudiante").submit(function( event ) {
                   success: function(datos){
                   $("#cargar").html(datos);
                   cargar(1);
+              
                   
                 }
           });

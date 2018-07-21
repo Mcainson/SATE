@@ -93,19 +93,19 @@
 
             <div id="Crud" class="tabcontent">
             <h3>ALUMNO</h3>
-            <div> <?php include('ver_equipo.php') ?></div>
+            <div> <?php include('equipo/ver_equipo.php') ?></div>
            
             </div>
 
             <div id="Proyecto" class="tabcontent">
             <h3>CREAR EQUIPO</h3>
-            <div> <?php include('crear_equipo.php') ?></div>
+            <div> <?php include('equipo/crear_equipo.php') ?></div>
           
             </div>
 
             <div id="Alumno" class="tabcontent">
             <h3>ALUMNO</h3>
-            <div> <?php include('crud.php') ?></div>
+            <div> <?php include('equipo/crud.php') ?></div>
          
             </div>
 

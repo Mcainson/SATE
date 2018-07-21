@@ -37,7 +37,7 @@ li a:hover:not(.active) {
 
   <li><a href="../profe/index_proyecto.php">PROYECTO</a></li>
   <li><a href="../profe/index_equipo.php">EQUIPO</a></li>
-  <li><a href="#">MENSAJE</a></li>
+  <li><a href="../profe/index_mensaje.php">MENSAJE</a></li>
   <li><a href="#">HELP</a></li>
   <li style="float:right"><a href="../login/logout.php">LOGOUT</a></li>
 </ul>

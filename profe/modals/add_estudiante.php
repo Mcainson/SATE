@@ -25,7 +25,7 @@
         <form name="add_estudiante" method="POST" id="add_estudiante"> 
             <div id="input_group">
             
-                <div> <input class="input_text" type="text" id="nombre" name="nombre" placeholder="Nombre del estudiante" required><br>
+                <div> <input class="input_text" type="text" id="" name="nombre" placeholder="Nombre del estudiante" required><br>
                     <input class="input_text" type="text" id="apellidos" name="apellidos" placeholder="Apellidos del estudiante" required><br>
                     <input class="input_text" type="email" id="correo" name="correo" placeholder="Correo del estudiante" required><br>
                     <input class="input_text" type="password" id="contrasena" name="contrasena" placeholder="Inserta contrasena" required><br>

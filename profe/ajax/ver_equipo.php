@@ -7,8 +7,6 @@ $obj= new conectar();
 $conn=$obj->conexion();
 
 
-
-
 $sql = "SELECT * FROM equipo";
 $result = $conn->query($sql);
 
@@ -19,8 +17,6 @@ if ($result->num_rows > 0) {
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Codigo</th>
-              
-               
                 <th>ACTION</th>
             
             </tr><?php
@@ -31,20 +27,11 @@ if ($result->num_rows > 0) {
     <tr>
         <td> <?php echo $row["id_equipo"] ?></td>
                 <td><?php echo $row["Nombre"] ?></td>
-                <td><?php echo $row["Codigo"] ?>
-                </td>
+                <td><?php echo $row["Codigo"] ?></td>
                
-                <td>
-               <a href="#"><i class="material-icons">archive</i><a/>
-               <button id="asignarAct" ><i class="material-icons">description</i></button>
-              
-                <label class="switch">
-                <input type="checkbox" >
-                    <span class="slider round"></span>
-                </label>
-                <input type="hidden" id="estatus" value=""/>
-                               
-                </td>
+                <td><a href="www.google.com"><i class="material-icons">archive</i><a/>   
+                <a href="https://www.w3schools.com">Visit W3Schools</a>             
+               </td>
             
                 </tr>
                 

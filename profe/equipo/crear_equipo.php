@@ -11,20 +11,24 @@
    
     
 <?php
-        //Include database configuration file
-   /*      include('../inc/config.php'); */
         
-        //Get all country data
+        
+        //SELECCIONA ESTUDIANTE QUE TODAVIA NO TIENE EQUIPO
         $id_usuario= $_SESSION['id_usuario'];
         $query = $conn->query("SELECT * FROM estudiante where id_profesor=$id_usuario AND estatus=0");
         
         //Count total number of rows
         $rowCount = $query->num_rows;
         ?>
+            <button type="button">CREAR EQUIPO RANDOM</button> </br>
         <form>
-
+        </br>
+            <fieldset>
+            <legend>CREAR EQUIPO MANUAL</legend>
             <input type="text" class="input_text" name="nombre" id="nombre" placeholder="Inserta nombre del equipo" required/> 
             <input type="text" class="input_text" name="codigo" id="codigo" placeholder="Inserta Codigo del equipo" required/>
+            <input type="number" class="input_text" name="cantidad" id="cantidad" min="3" max="7" placeholder="cantidad de miembros del equipo" required/>
+          
           
       
             <?php
@@ -78,9 +82,11 @@
             ?>
         <div id="resultado"></div>
      <button type="submit" name="crear_equipo" id="crear_equipo" >generar equipo</button>
+     </fieldset>
         </form>
 
     <script>
+
 $(document).ready(function(){
  
  $('#crear_equipo').click(function(){
@@ -90,14 +96,15 @@ $(document).ready(function(){
    var id = [];
    var codigo = $('#codigo').val();
    var nombre = $('#nombre').val();
-   alert(codigo);
+   var cantidad = $('#cantidad').val();
+  
    $(':checkbox:checked').each(function(i){
     id[i] = $(this).val();
    });
    
-   if(id.length < 4) //tell you if the array is empty
+   if(id.length != cantidad) //tell you if the array is empty
    {
-    alert("Selecciona por lo menos 4 alumnos");
+    alert("Selecciona la cantidad de miembros necesitada");
    }
    else
    {

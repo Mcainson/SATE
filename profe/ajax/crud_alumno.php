@@ -15,26 +15,15 @@
 	$sWhere=" estudiante.nombre LIKE '%".$query."%'";
 	$sWhere.=" AND estudiante.id_profesor = '".$id_profesor."'";
 	
-	
-	include 'pagination.php'; 
-    
-
-    $page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
-   
-    $per_page = intval($_REQUEST['per_page']); 
- 
-	$adjacents  = 4; 
-	$offset = ($page - 1) * $per_page;
-
-    
+	   
 
 	$count_query   = mysqli_query($conn,"SELECT count(*) AS numrows FROM $tables where $sWhere ");
 	if ($row= mysqli_fetch_array($count_query)){$numrows = $row['numrows'];}
 	else {echo mysqli_error($conn);}
-    $total_pages = ceil($numrows/$per_page);
+
     
 
-	$query = mysqli_query($conn,"SELECT $campos FROM  $tables where $sWhere LIMIT $offset,$per_page");
+	$query = mysqli_query($conn,"SELECT $campos FROM  $tables where $sWhere");
 
 	
 
@@ -85,18 +74,7 @@
 						</tr>
                         <?php }?>
 								
-                      
-                        
-						<tr>
-							<td colspan='6'> 
-								<?php 
-									$inicios=$offset+1;
-									$finales+=$inicios -1;
-									echo "Mostrando $inicios al $finales de $numrows registros";
-									echo paginate( $page, $total_pages, $adjacents);
-								?>
-							</td>
-						</tr>
+                  
 				</tbody>			
 			</table>
 	

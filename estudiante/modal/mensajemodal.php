@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="modals/modal.css">
+    <link rel="stylesheet" type="text/css" href="modal/modal.css">
 </head>
 <body>
-<div id="editar" class="modal">
+
+<div id="mensaje" class="modal">
 
 <!-- Modal content -->
 <div class="modal-content">
   <span class="close">&times;</span>
-  <p>modaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaal..</p>
-  <div id="resultados"></div>
+ 
+ 
 
   <div id="result"></div>
   
-</div>
- 
-</div>
+
+  </div>
+ </div>
