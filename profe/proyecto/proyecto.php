@@ -10,35 +10,6 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
-    
-    
-
-
-    <script type="text/javascript">
-$(document).ready(function(){
-    $('#id_equipo').on('change',function(){
-        var id_equipo = $(this).val();
-        if(id_equipo){
-            $.ajax({
-                type:'POST',
-                url:'ajax.php',
-                data:'id_equipo='+id_equipo,
-                
-                success:function(html){
-                    $('#nombre_lider').html(html);
-                  
-                  
-                }
-            }); 
-        }else{
-            $('#nombre_lider').html('<option value="">Selecciona equipo</option>');
-         
-        }
-    });
-    
-    
-});
-</script>
       
     
 <body>  
@@ -52,54 +23,6 @@ $(document).ready(function(){
         <div><input class="input_text" type="text" id="nombre_proyecto" placeholder="Nombre del proyecto" name="nombre_proyecto" required/></div>
         <div><textarea rows="4" cols="50" class="input_text" id="descripcion_proyecto" name="descripcion_proyecto" placeholder="Describe el proyecto..." required></textarea></div>
         <div><label for="fecha_entrega">Fecha de Entrega</label><input type="date" id="fecha_entrega" min="<?php echo $tomorrow?>" name="fecha_entrega" required/></div>
-
-       
-    
-
-        <?php
-        //Include database configuration file
-        include('../inc/config.php');
-        
-        //SELECCIONAR EQUIPO
-         
-            $sql = "SELECT * FROM profesor WHERE id_users='$id_usuario'";
-            $result = $conn->query($sql);
-
-            $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-            $id_profesor= $row["id_profesor"];
-         
-           
-        $query = $conn->query("SELECT DISTINCT equipo.id_equipo as id_equipo, equipo.nombre as Nombre
-                            FROM       
-        
-                            equipo,
-                            estudiante        
-                            WHERE
-                            
-                            equipo.id_equipo = estudiante.id_equipo AND
-                            estudiante.id_profesor =$id_profesor AND
-                            id_proyecto=0");
-        
-        //Count total number of rows
-        $rowCount = $query->num_rows;
-        ?>
-        <select  class="input_text" name="Nombre" id="id_equipo" required>
-            <option value="">Selecciona equipo</option>
-            <?php
-            if($rowCount > 0){
-                while($row = $query->fetch_assoc()){ 
-                    echo '<option value="'.$row['id_equipo'].'">'.$row['Nombre'].'</option>';
-                }
-            }else{
-                echo '<option value="">No hay mas equipo</option>';
-            }
-            ?>
-        </select>
-    
-        <select class="input_text" name="nombre_lider" id="nombre_lider" required>
-            <option value="">Asigna lider de proyecto</option>
-        </select>   
-
     <legend>Actividades</legend>         
     
     

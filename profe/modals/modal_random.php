@@ -8,17 +8,17 @@
     <link rel="stylesheet" type="text/css" href="modals/modal.css">
 </head>
 <body>
-<div id="editar" class="modal">
+
+<div id="random" class="modal">
 
 <!-- Modal content -->
 <div class="modal-content">
   <span class="close">&times;</span>
-  
-  <div id="resultados"></div>
+ 
+ 
 
   <div id="result"></div>
   
-  
-</div>
- 
-</div>
+
+  </div>
+ </div>

@@ -71,7 +71,7 @@
 
         $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-        echo $row["id_profesor"];
+        $id_profesor = $row["id_profesor"];
         
 
 

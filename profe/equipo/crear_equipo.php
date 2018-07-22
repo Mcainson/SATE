@@ -20,7 +20,8 @@
         //Count total number of rows
         $rowCount = $query->num_rows;
         ?>
-            <button type="button">CREAR EQUIPO RANDOM</button> </br>
+            <button type="button" id="equipo_random">CREAR EQUIPO RANDOM</button> </br>
+
         <form>
         </br>
             <fieldset>
@@ -85,6 +86,10 @@
      </fieldset>
         </form>
 
+        
+        <?php include('modals/modal_random.php') ?>
+        <div id="result"></div>
+
     <script>
 
 $(document).ready(function(){
@@ -136,5 +141,42 @@ $(document).ready(function(){
 });
 </script>
 
+<script>
+
+ 
+ $(document).on('click','#equipo_random',function () {  
+                   alert('skusku');
+          
+                   $.ajax({
+            type:'POST',
+            url:'ajax/equipo_random.php',
+            data:{},
+            
+            success:function(data){
+                $('#result').html(data);
+                $('#random').css({'display':'block'});
+            
+            
+            }
+        });
+            
+        });
+
+        $(document).on('click','.close',function () {
+
+$('#random').css({'display':'none'});
+
+});
+
+
+
+
+
+
+
+
+
+</script>
 </body>
 </html>
+

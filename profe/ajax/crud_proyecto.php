@@ -51,6 +51,7 @@
 						<th>Nombre</th>
 						<th>Descripcion </th>
 						<th>Fecha Entrega </th>
+						<th>Archivo Final </th>
 						<th>Action </th>
 					</tr>
 				</thead>
@@ -63,6 +64,7 @@
 							$nombre=$row['Nombre'];
 							$fecha_entrega=$row['fecha_entrega'];
 							$descripcion=$row['Descripcion'];
+						
 											
 							$finales++;
 						?>	
@@ -70,6 +72,7 @@
 							<td><?php echo $nombre;?></td>
 							<td ><?php echo $descripcion;?></td>
 							<td ><?php echo $fecha_entrega;?></td>
+							<td > <a href="<?php echo 'sate/'.$row["ruta"] ?>"><i class="material-icons">archive</i><a/></td>
 						
 							<td>
 							<a class="editar_id" href="#"><i class="material-icons"  title="Editar">&#xE254;</i>
@@ -80,6 +83,12 @@
 							<i class="material-icons"  title="Eliminar">&#xE872;</i>
 							
 							</a>
+
+							<a href="#" id="asign_project"><i class="material-icons">assignment</i>
+							<input id="id_proyecto" type="hidden" value=" <?php echo $id ?>">
+							<input id="id_profesor" type="hidden" value=" <?php echo $id_profesor?>">
+							
+							<a/>
 															
                     		</td>
 						</tr>
@@ -101,69 +110,14 @@
 			</table>
 		</div>	
 
-	
-	
 	<?php	
 		
 }
 
 include('../modals/editarproyecto_modal.php');
+
 ?>          
 
 
-<script>
+<script src="js/equipo.js"> </script>
 
-	
-	$(document).ready(function(){
-
-
-
-$(".delete_proyecto" ).click(function() {
-    alert('se borra');
-var id_eliminar= $(this).children().val();
-
-$.ajax({
-          type: "POST",
-          url: "ajax/delete.php",
-          data: {id_eliminar},
-           beforeSend: function(objeto){
-         
-              $("#cargar").html("Enviando...");
-            },
-          success: function(datos){
-          $("#cargar").html(datos);
-          cargar(1);
-          
-        }
-  });
-
-
-    });
-});
-
- $(document).on('click','.editar_id',function (id_editar) {        
-			   id_editar='';
-         id_editar = $(this).children('#id_editar').val();	
-		    $.ajax({
-                type:'POST',
-                url:'ajax/combo.php',
-                data:{id_editar},                
-                success:function(data){
-                    $('#result').html(data);
-					$('#editar').css({'display':'block'});                  
-                                  }
-            }); 
-            
-	
-      
-	   
-       
-   });
-
-      $(document).on('click','.close',function () {
-
-$('#editar').css({'display':'none'});
-  
-});
-
-</script>

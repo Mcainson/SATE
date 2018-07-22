@@ -16,8 +16,7 @@
                             estudiante        
                             WHERE
                             equipo.id_equipo = estudiante.id_equipo AND
-                            estudiante.id_profesor =$id_profesor AND
-                            id_proyecto=0");
+                            estudiante.id_profesor =$id_profesor");
         
         //Count total number of rows
         $rowCount = $query->num_rows;

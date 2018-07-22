@@ -37,20 +37,6 @@
 		$id_profe = $id_profe;
 		$id_usuario = $id_usuario;
 		$sql2->execute();
-  
-		
-
-
-
-
-
-
-
-
-
-
-
-
    
     if ($sql2) {
 		$conn->close();

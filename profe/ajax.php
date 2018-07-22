@@ -46,6 +46,7 @@ if(isset($_POST["id_equipo"]) && !empty($_POST["id_equipo"])){
 		$id_lider = $_POST["nombre_lider"];
 		$fecha_entrega = $_POST["fecha_entrega"];
 
+		// CREAR PROYECTO
 		$sql = $conn->prepare("INSERT INTO proyecto(Nombre, Descripcion, fecha_entrega, id_profe) VALUE (?, ?, ?,?);");
 		$sql->bind_param("ssss", $nombre, $descripcion, $fecha_entrega, $id_profesor);
 		$nombre = $proyecto;
@@ -58,7 +59,7 @@ if(isset($_POST["id_equipo"]) && !empty($_POST["id_equipo"])){
 
 		
 	
-
+		// REGISTRAR LAS ACTIVIDADES DEL PROYECTO
 		foreach($_POST["mytext"] as $key => $actividad){
 			echo $actividad;
 			$stmt1= "INSERT INTO actividades(Nombre, id_proyecto) VALUES ('$actividad', $id_proyecto); ";
@@ -67,45 +68,6 @@ if(isset($_POST["id_equipo"]) && !empty($_POST["id_equipo"])){
 			$stmt2->execute();
 		}
 		
-		
-		
-
-		$sql2= "UPDATE equipo SET id_proyecto = $id_proyecto WHERE id_equipo = $id_equipo";
-		$stmt = $conn->prepare($sql2);
-		$stmt->execute();
-		var_dump($stmt);
-
-		//ASIGNA ESTUDIANTE COMO LIDER
-		$sql3= "UPDATE estudiante SET tipo = 1 WHERE id_estudiante = $id_lider";
-		$stmt3 = $conn->prepare($sql3);
-		$stmt3->execute();
-		var_dump($stmt);
-
-
-
-		// ASIGNA USUARIO COMO LIDER
-		
-		$sql4 = "SELECT id_users FROM estudiante where id_estudiante=$id_lider";
-		$result = $conn->query($sql4);
-		
-		var_dump($sql4);	
-		while($row = $result->fetch_assoc()) {
-
-			$id_users = $row["id_users"];
-			echo $id_users;
-			$sql5= "UPDATE users SET tipo = 2 WHERE id_users = $id_users";
-			$stmt5 = $conn->prepare($sql5);
-			$stmt5->execute();
-			var_dump($stmt5);
-		}
-		
-
-
-
-		
-		
-	
-	
 		mysqli_close($conn); 
 	
 	}
