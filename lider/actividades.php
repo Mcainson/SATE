@@ -46,30 +46,5 @@
             ?>
         </select>
 
-        <script type="text/javascript">
-$(document).ready(function(){
-    $('#id_proyecto').on('change',function(){
-        var id_proyecto = $(this).val();
-        // alert(id_proyecto);
-        if(id_proyecto){
-            $.ajax({
-                type:'POST',
-                url:'ajax/actividad.php',
-                data:'id_proyecto='+id_proyecto,
-                
-                                success:function(html){
-                   
-                    $('#resultado').html(html);
-                  
-                  
-                }
-            }); 
-        }
-    });
-    
-    
-});
-</script>
-
 </body>
 </html>

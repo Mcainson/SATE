@@ -29,26 +29,4 @@ echo $id_actividad;
 </form>
 
 <div id="resultados"></div>
-  <script>
-
-$("#calificacion").submit(function( event ) {
-    var parametros = $(this).serialize();
-    alert(parametros);
-   
-      $.ajax({
-              type: "POST",
-              url: "ajax/calificar2.php",
-              data: parametros,
-               beforeSend: function(objeto){
-                  $("#rezilta").html("Enviando...");
-                },
-              success: function(datos){
-                  alert('succes');
-                  
-              $("#rezilta").html(datos);
-          
-            }
-      });
-    event.preventDefault();
-  });
-        </script>
+<script src="js/ajax.js">  </script>

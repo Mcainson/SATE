@@ -100,37 +100,7 @@ $conn->close();
 ?>
         
 
-            <script>
-            $(document).on('click','.asignarAct',function () {
-            alert('ok');
-            id_proyecto='';
-            id_actividad='';
-            id_proyecto = $(this).children('#id_proyecto').val();
-            id_actividad = $(this).children('#id_actividad').val();
-                    alert(id_actividad);
-
-            $.ajax({
-            type:'POST',
-            url:'ajax/calificar.php',
-            data:{id_actividad:id_actividad,id_proyecto:id_proyecto},
-                
-            success:function(data){
-            alert('siksè');
-            $('#rezilta').html(data);
-			$('#asignarActividades').css({'display':'block'});
-                  
-                  
-                }
-            }); 
-
-              }); 
-
-                    $(document).on('click','.close',function () {
-
-                    $('#asignarActividades').css({'display':'none'});
-
-                    });
-                    </script>
+            <script src="js/ajax.js">  </script>
 
 
   

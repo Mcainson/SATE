@@ -17,6 +17,7 @@ function openProyecto(evt, tabName) {
 
 
 $(document).ready(function(){
+    console.log('lap load');
     // SELECCIONAR ESTUDIANTE EN FUNCCION DEL EQUIPO AL QUE PERTENECE
 
   // CAPTURAR DATOS DEL FORMULARIO PARA ENVIAR MENSAJE

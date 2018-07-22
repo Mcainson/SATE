@@ -40,36 +40,5 @@
         <input type="submit" class="submit_button2" value="Asignar">
         </form>
         <div id="resultados"></div>
-        <script>
-
-        $("#asign_actividad").submit(function( event ) {
-        var parametros = $(this).serialize();
-        var id_profe = 1;
-
-        $.ajax({
-        type: "POST",
-        url: "ajax/asignar_actividad.php",
-        data: parametros,
-        beforeSend: function(objeto){
-        $("#resultados").html("Enviando...");
-        },
-        success: function(datos){
-
-        $("#resultados").html(datos);
-
-        }
-        });
-        event.preventDefault();
-        });
-
-
-
-
-
-
-
-
-
-
-
-        </script>
+        
+        <script src="js/ajax.js">  </script>

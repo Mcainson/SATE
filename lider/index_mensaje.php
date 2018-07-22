@@ -111,12 +111,7 @@
    </div>
         
 </div>
-  
-
-    <script>
-
-</script>  
-
+ 
 
     <script src="js/myscripts.js"></script>
 </body>

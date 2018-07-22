@@ -104,31 +104,4 @@
 		
 }
 ?>          
-
-
-<script>
-
-	
-	$(document).ready(function(){
-
-	$(".delete_alumno" ).click(function() {
-	var id_eliminar= $(this).children().val();
-
-	$.ajax({
-              type: "POST",
-              url: "ajax/accion.php",
-              data: {id_eliminar},
-               beforeSend: function(objeto){		
-                  $("#resultados").html("Enviando...");
-                },
-              success: function(datos){
-              $("#resultados").html(datos);
-              load(1);
-              
-            }
-      });
-
-
-		});
-	});
-</script>
+<script src="js/ajax.js">  </script>

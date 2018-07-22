@@ -16,26 +16,5 @@ $id_actividad = $_POST['id_actividad'];
 
 </form>
 <div id="resultados"></div>
-  <script>
 
-$("#aprobacion").submit(function( event ) {
-    var parametros = $(this).serialize();
-    alert(parametros);
-   
-      $.ajax({
-              type: "POST",
-              url: "ajax/aprobar_actividad.php",
-              data: parametros,
-               beforeSend: function(objeto){
-                  $("#aprobado").html("Enviando...");
-                },
-              success: function(datos){
-                  alert('succes');
-                  
-              $("#aprobado").html(datos);
-          
-            }
-      });
-    event.preventDefault();
-  });
-        </script>
+        <script src="js/ajax.js">  </script>

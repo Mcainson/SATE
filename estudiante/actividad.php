@@ -23,7 +23,6 @@
         equipo.id_proyecto = proyecto.id_proyecto AND
         equipo.id_equipo =estudiante.id_equipo AND
         estudiante.id_estudiante=$id_estudiante");
-        var_dump($query);
         
         //Count total number of rows
         $rowCount = $query->num_rows;
@@ -42,31 +41,6 @@
             ?>
         </select>
 
-        <script type="text/javascript">
-$(document).ready(function(){
-    $('#id_proyecto').on('change',function(){
-        var id_proyecto = $(this).val();
-        var id_estudiante = $('#id_estudiante').val();
-        alert(id_estudiante);
-        if(id_proyecto){
-            $.ajax({
-                type:'POST',
-                url:'ajax/actividad.php',
-                data:{id_proyecto, id_estudiante},
-                
-                                success:function(html){
-                   
-                    $('#resultado').html(html);
-                  
-                  
-                }
-            }); 
-        }
-    });
-    
-    
-});
-</script>
-
+<script src="js/actividad.js"></script>
 </body>
 </html>

@@ -57,33 +57,5 @@ echo '<option value="">No hay mas equipo</option>';
 <div id="resultados"></div>
 
 </fieldest>
-<script>
 
-
-
-   $("#confirm").submit(function( event ) {
-              
-                var parametros = $(this).serialize();
-                alert(parametros);
-                           
-                  $.ajax({
-                          type: "POST",
-                          url: 'ajax/proyecto.php',
-                          data: parametros,
-                           beforeSend: function(objeto){
-                              $("#resultados").html("Enviando...");
-                            },
-                          success: function(datos){
-                              
-                          $("#resultados").html(datos);
-                          $("#confirm")[0].reset();
-                   
-                          
-                      
-                        }
-                  });
-                event.preventDefault();
-              });
-              
-
-</script>
+<script src="js/ajax.js">  </script>
