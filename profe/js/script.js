@@ -2,10 +2,12 @@ $(function() {
   load(1);
 });
 
+
 function load(page){
   var query=$("#q").val();
+  var id_profesor=$("#id_profesor").val();
   var per_page=10;
-  var parametros = {"page":page,'query':query,'per_page':per_page};
+  var parametros = {"page":page,'query':query,'id_profesor':id_profesor,'per_page':per_page};
   $("#loader").fadeIn('slow');
   $.ajax({
       url:'ajax/crud_alumno.php',

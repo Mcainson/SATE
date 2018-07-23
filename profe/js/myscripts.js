@@ -42,7 +42,7 @@ $(document).ready(function(){
     
   $("#enviarmensaje").submit(function( event ) {
     var parametros = $(this).serialize();
-    alert(parametros);
+  
    
     
       $.ajax({

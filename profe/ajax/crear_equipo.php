@@ -12,7 +12,7 @@
 		$nombre = $nombre;
         $codigo = $codigo;
         
-		var_dump($sql);
+		
 		$sql->execute();
         $id_equipo = $conn->insert_id;
         
@@ -22,12 +22,12 @@ foreach($_POST["id"] as $key => $id){
     $sql2= "UPDATE estudiante SET id_equipo = $id_equipo WHERE id_estudiante = $id";
 		$stmt = $conn->prepare($sql2);
 		$stmt->execute();
-		var_dump($stmt);
+		
 
 		$sql3= "UPDATE estudiante SET estatus = 1 WHERE id_estudiante = $id";
 		$stmt3 = $conn->prepare($sql3);
 		$stmt3->execute();
-		var_dump($stmt);
+		
 	
 		
 }

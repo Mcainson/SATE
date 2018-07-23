@@ -66,7 +66,11 @@ if ($result->num_rows > 0) {
         <td><?php echo $row["id_proyecto"] ?></td>
         <td><?php echo $row["calificacion"] ?></td>
         <td>
-            
+         <!-- Button para ver comentario de las actividades -->
+        <a class="comentario" href="#"><i class="material-icons">insert_comment</i>                   
+                        <input type="hidden" id="id_actividad" value="<?php echo $row["id_actividades"] ;?>">
+                        <input type="hidden" id="id_estudiante" value="<?php echo $id_estudiante ;?>">                   
+                   </a>  
             <?php
                 if ($row["estatus"]==5){?>                    
                     <a href="<?php echo 'sate/'.$row["ruta"] ?>" download><i class="material-icons">archive</i><a/>                  
@@ -77,6 +81,7 @@ if ($result->num_rows > 0) {
                     <a class="openmodal" href="#"><i class="material-icons">description</i>
                         <input type="hidden" id="modal_open" value="<?php echo $row["id_proyecto"] ;?>">
                         <input type="hidden" id="actividad" value="<?php echo $row["id_actividades"] ;?>">
+                        <input type="hidden" id="id_lider" value="<?php echo $id_estudiante ;?>"> 
                     </a>             
                
             <?php
@@ -88,20 +93,17 @@ if ($result->num_rows > 0) {
                    </a>
                    <a href="<?php echo 'sate/'.$row["ruta"] ?>" download><i class="material-icons">archive</i><a/>
             <?php 
-                  include('../modal/modal_aprobacion.php');   
+                //   include('../modal/modal_aprobacion.php');   
                 }
                    
             ?>
-                     <!-- Button para ver comentario de las actividades -->
-                     <a class="comentario" href="#"><i class="material-icons">insert_comment</i>                   
-                        <input type="hidden" id="id_actividad" value="<?php echo $row["id_actividades"] ;?>">
-                        <input type="hidden" id="id_estudiante" value="<?php echo $id_estudiante ;?>">
-                   
-                   </a>  
-                   <?php  include('../modal/modal_aprobacion.php');   ?>   
+                    
+                    
+                 
         </td>
-    </tr>
 
+    </tr>
+        <div><?php  include('../modal/modal_aprobacion.php');   ?>   </div>
                 
                 <?php
                 

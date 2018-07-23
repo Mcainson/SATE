@@ -2,7 +2,7 @@
      $(document).ready(function(){
             console.log('edobrasiiiiiil');
         $(".delete_proyecto" ).click(function() {
-            alert('se borra');
+        
         var id_eliminar= $(this).children().val();
         
         $.ajax({
@@ -25,13 +25,10 @@
             // Abrir el modal para leer los mensajes
         
              $(document).on('click','#asign_project',function () {
-                id_proyecto='';
-                
+                id_proyecto='';     
                 id_proyecto = $(this).children('#id_proyecto').val();
-                alert(id_proyecto);
                 id_profesor='';
                 id_profesor = $(this).children('#id_profesor').val();
-                alert(id_profesor);
               
                 
                     $.ajax({

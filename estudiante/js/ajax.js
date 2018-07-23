@@ -3,7 +3,7 @@ $( document ).ready(function() {
     console.log( "euhhhhhhhhhh!" );
 
     $(document).on('click','.modalsubir',function () {
-        alert('ok');
+      
         id_actividad='';
         id_actividad = $(this).children('#id_actividad').val();
         id_estudiante='';

@@ -19,6 +19,18 @@
     <div id="modal_student" class="modal">
 
     <!-- Modal content -->
+    <?php 
+        $id_usuario = $_SESSION['id_usuario'];
+        $query = "SELECT * FROM profesor WHERE id_users='$id_usuario'";
+        $result = $conn->query($query);
+
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        $id_profesor = $row["id_profesor"];
+
+
+
+    ?>
     <div class="modal-content">
         <span class="close">&times;</span>
 
@@ -29,7 +41,7 @@
                     <input class="input_text" type="text" id="apellidos" name="apellidos" placeholder="Apellidos del estudiante" required><br>
                     <input class="input_text" type="email" id="correo" name="correo" placeholder="Correo del estudiante" required><br>
                     <input class="input_text" type="password" id="contrasena" name="contrasena" placeholder="Inserta contrasena" required><br>
-                    <input class="input_text" type="hidden" id="id_profe" name="id_profe" value="  <?php   echo $id_profesor;  ?>"><br>
+                    <input class="input_text" type="hidden" id="id_profe" name="id_profe" value="  <?php   echo $id_profesor; ?>"><br>
                   
                 
                 </div>

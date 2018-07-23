@@ -54,7 +54,6 @@ if ($result->num_rows > 0) {
 ?>
         <script>
             $(document).on('click','#ver_project',function () {        
-                alert('listo papa');
                    id_equipo='';
                    id_equipo = $(this).children('#id_equipo').val();	
                     $.ajax({

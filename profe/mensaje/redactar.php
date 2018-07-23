@@ -1,6 +1,6 @@
 
 <fieldset>
-    <?php echo $id_usuario;?>
+ 
     <legend>Datos del proyecto</legend>
     <form name="enviarmensaje" id="enviarmensaje">
     <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">

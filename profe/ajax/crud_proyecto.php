@@ -74,7 +74,7 @@
 							<td ><?php echo $fecha_entrega;?></td>
 							
 							<td>
-							<?php if ($row["ruta"] != 0){ ?>
+							<?php if ($row["ruta"] != '0'){ ?>
 							 <a href="<?php echo 'sate/'.$row["ruta"] ?>"><i class="material-icons">archive</i><a/>
 							 <?php }?>
 							</td>

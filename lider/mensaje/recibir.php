@@ -19,13 +19,13 @@ if ($result->num_rows > 0) {
         <td><?php echo $row["id_mensaje"] ?></td>
         <td><?php echo $row["id_usuario_envio"] ?></td>
         <td><?php echo $row["asunto"] ?></td>
-        <td>  Fecha a añadir </td>
+        <td>  <?php echo $row["fecha"] ?> </td>
         <td>
             <a id="abrir_mensaje" href="#"><i class="material-icons">mail</i>
             <input type="hidden" class="" id="id_mensaje" value="<?php echo $row["id_mensaje"] ?>">
                       
             <a/>
-            <a href="#"><i class="material-icons">delete_forever</i><a/> 
+          
         </td>
             
     </tr>

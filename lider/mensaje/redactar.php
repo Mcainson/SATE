@@ -1,6 +1,6 @@
 
 <fieldset>
-    <?php echo $id_estudiante;?>
+
     <legend>Datos del proyecto</legend>
     
        <?php
@@ -24,7 +24,7 @@
         ;";
 
         $result2 = $conn->query($query);
-        var_dump($result2);
+     
         $row1=mysqli_fetch_array($result2,MYSQLI_ASSOC);
         $IdUsuarioMaes =  $row1["id_users"];
     
@@ -71,7 +71,7 @@
         <script>
 $("#enviarmensaje").submit(function( event ) {
     var parametros = $(this).serialize();
-    alert(parametros);
+  
         var id = $("#Nombre").val();
     
       $.ajax({

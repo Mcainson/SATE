@@ -6,14 +6,10 @@ $conn=$obj->conexion();
 
 $id_proyecto = $_POST['id_proyecto'];
 $id_profesor = $_POST['id_profesor'];
-
-
 $stmt = "SELECT * FROM equipo WHERE id_proyecto =$id_proyecto";
 $result = $conn->query($stmt);
 $fila=mysqli_fetch_array($result,MYSQLI_ASSOC);
 if ($result->num_rows == 0) {
-
-
 
 ?>
 
@@ -26,12 +22,12 @@ if ($result->num_rows == 0) {
 </button> <div> </br>
 <script>
  $("#asign_random" ).click(function() {
-      alert('ya esta'); 
+ 
       id_proyecto='';
       id_proyecto = $(this).children('#id_proyecto').val();
       id_profesor='';
       id_profesor = $(this).children('#id_profesor').val();  
-      alert(id_profesor);     
+   
 
     $.ajax({
        type:'POST',

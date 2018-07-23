@@ -63,7 +63,7 @@
         if (empty($_SESSION['login_user'])){
             echo "<script language='javascript' type='text/javascript'> location.href='../login/login.php' </script>";
         }
-        $profe=$_SESSION['login_user']; 
+     
         $id_usuario= $_SESSION['id_usuario'];
 
         $query = "SELECT * FROM profesor WHERE id_users='$id_usuario'";

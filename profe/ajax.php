@@ -53,7 +53,7 @@ if(isset($_POST["id_equipo"]) && !empty($_POST["id_equipo"])){
 		$id_profesor = $id_profesor;
 		$fecha_entrega = $fecha_entrega;
 		$descripcion = $descripcion;
-		var_dump($sql);
+		
 		$sql->execute();
 		$id_proyecto = $conn->insert_id;
 
@@ -64,7 +64,7 @@ if(isset($_POST["id_equipo"]) && !empty($_POST["id_equipo"])){
 			echo $actividad;
 			$stmt1= "INSERT INTO actividades(Nombre, id_proyecto) VALUES ('$actividad', $id_proyecto); ";
 			$stmt2 = $conn->prepare($stmt1);
-			var_dump($stmt2);
+		
 			$stmt2->execute();
 		}
 		

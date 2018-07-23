@@ -14,19 +14,19 @@
         
         
         //SELECCIONA ESTUDIANTE QUE TODAVIA NO TIENE EQUIPO
-        $id_usuario= $_SESSION['id_usuario'];
-        $query = $conn->query("SELECT * FROM estudiante where id_profesor=$id_usuario AND estatus=0");
+        
+        $query = $conn->query("SELECT * FROM estudiante where id_profesor=$id_profesor AND estatus=0");
         
         //Count total number of rows
         $rowCount = $query->num_rows;
         ?>
-            <button type="button" id="equipo_random">CREAR EQUIPO RANDOM</button> </br>
+     </br>
 
-        <form>
+        <form id="equ">
         </br>
             <fieldset>
             <legend>CREAR EQUIPO MANUAL</legend>
-            <input type="text" class="input_text" name="nombre" id="nombre" placeholder="Inserta nombre del equipo" required/> 
+            <input type="text" class="input_text required" name="nombre" id="nombre" placeholder="Inserta nombre del equipo" required/> 
             <input type="text" class="input_text" name="codigo" id="codigo" placeholder="Inserta Codigo del equipo" required/>
             <input type="number" class="input_text" name="cantidad" id="cantidad" min="3" max="7" placeholder="cantidad de miembros del equipo" required/>
           
@@ -92,91 +92,59 @@
 
     <script>
 
-$(document).ready(function(){
- 
- $('#crear_equipo').click(function(){
-  
-  if(confirm("Seguro de crear este equipo?"))
-  {
-   var id = [];
-   var codigo = $('#codigo').val();
-   var nombre = $('#nombre').val();
-   var cantidad = $('#cantidad').val();
-  
-   $(':checkbox:checked').each(function(i){
-    id[i] = $(this).val();
-   });
-   
-   if(id.length != cantidad) //tell you if the array is empty
-   {
-    alert("Selecciona la cantidad de miembros necesitada");
-   }
-   else
-   {
-    
-    $.ajax({
+        $(document).ready(function(){
         
-     url:'ajax/crear_equipo.php',
-     method:'POST',
-     data:{id:id, nombre:nombre, codigo:codigo},
-     success:function(datos)
-     {
-        alert(id);
-        $("#resultados").html(datos);
-     
-     }
-     
-    });
-
-     event.preventDefault();
-   }
-   
-  }
-  else
-  {
-   return false;
-  }
- });
- 
-});
-</script>
-
-<script>
-
- 
- $(document).on('click','#equipo_random',function () {  
-                   alert('skusku');
-          
-                   $.ajax({
-            type:'POST',
-            url:'ajax/equipo_random.php',
-            data:{},
+        
+        $('#crear_equipo').click(function(){
+        
+        if(confirm("Seguro de crear este equipo?"))
+        {
+        var id = [];
+        var codigo = $('#codigo').val();
+        var nombre = $('#nombre').val();
+        var cantidad = $('#cantidad').val();
+        
+        $(':checkbox:checked').each(function(i){
+            id[i] = $(this).val();
+        });
+        
+        if(id.length != cantidad) //tell you if the array is empty
+        {
+            alert("Selecciona la cantidad de miembros necesitada");
+        }
+        else
+        {
             
-            success:function(data){
-                $('#result').html(data);
-                $('#random').css({'display':'block'});
-            
+            $.ajax({
+                
+            url:'ajax/crear_equipo.php',
+            method:'POST',
+            data:{id:id, nombre:nombre, codigo:codigo},
+            success:function(datos)
+            {
+                $("#resultados").html(datos);
+                setTimeout(function(){// wait for 5 secs(2)
+                    location.reload(); // then reload the page.(3)
+                }, 1000); 
+
             
             }
-        });
             
+            });
+
+            event.preventDefault();
+        }
+        
+        }
+        else
+        {
+        return false;
+        }
         });
+        
+        });
+        </script>
 
-        $(document).on('click','.close',function () {
-
-$('#random').css({'display':'none'});
-
-});
-
-
-
-
-
-
-
-
-
-</script>
 </body>
 </html>
 

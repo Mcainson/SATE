@@ -16,7 +16,6 @@ require_once ("../../class/conexion.php");
 	$correo = $correo;
 	$contrasena = $contrasena;
 	$tipo = 1;
-	var_dump($sql);
 	$sql->execute();
     $id_usuario = $conn->insert_id;
     echo $id_usuario;
@@ -40,17 +39,6 @@ require_once ("../../class/conexion.php");
 
    
         if ($sql2) {
-                    
-            // the message
-            $msg = "First line of text\nSecond line of text";
-
-            // use wordwrap() if lines are longer than 70 characters
-            $msg = wordwrap($msg,70);
-
-            // send email
-            mail("clerma94@hotmail.com","My subject",$msg);
-
-          
             $conn->close();
             $messages[] = "Los datos han sido guardados con éxito.";
         } else {

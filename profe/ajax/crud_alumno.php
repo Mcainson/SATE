@@ -7,10 +7,11 @@
 	
 
 	$query = $_REQUEST['query'];
+	$id_profesor = $_REQUEST['id_profesor'];
 	$tables="estudiante";
 	$campos="*";
 	$sWhere=" estudiante.nombre LIKE '%".$query."%'";
-	$sWhere.=" order by estudiante.nombre";
+	$sWhere.=" AND estudiante.id_profesor = '".$id_profesor."'";
 	
 	
 	include 'pagination.php'; 

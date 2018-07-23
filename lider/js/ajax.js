@@ -4,12 +4,15 @@ $( document ).ready(function() {
  $(document).on('click','.openmodal',function (id_editar) {              
     id_actividad=''
     id_proyecto='';
+    id_lider='';
     id_proyecto = $(this).children('#modal_open').val();
     id_actividad = $(this).children('#actividad').val();
+    id_lider = $(this).children('#id_lider').val();
+   
  $.ajax({
      type:'POST',
      url:'ajax/combo.php',
-     data:{id_proyecto:id_proyecto, id_actividad:id_actividad},
+     data:{id_proyecto:id_proyecto, id_actividad:id_actividad, id_lider:id_lider},
      
      success:function(data){
          $('#result').html(data);
@@ -99,7 +102,7 @@ error: function(e){
 // APROBAR UN ACTIVIDAD
 $("#aprobacion").submit(function( event ) {
     var parametros = $(this).serialize();
-    alert(parametros);
+  
    
       $.ajax({
               type: "POST",
@@ -109,7 +112,7 @@ $("#aprobacion").submit(function( event ) {
                   $("#aprobado").html("Enviando...");
                 },
               success: function(datos){
-                  alert('succes');
+                 
                   
               $("#aprobado").html(datos);
           
@@ -124,8 +127,7 @@ $("#aprobacion").submit(function( event ) {
   $("#asign_actividad").submit(function( event ) {
     var parametros = $(this).serialize();
     // A CAMBIAR ESTA MADRE
-    var id_profe = 1;
-
+   
     $.ajax({
     type: "POST",
     url: "ajax/asignar_actividad.php",
@@ -145,7 +147,7 @@ $("#aprobacion").submit(function( event ) {
         $('#id_proyecto').on('change',function(){
             var id_proyecto = $(this).val();
             var id_estudiante = $('#id_estudiante').val();
-            alert(id_estudiante);
+           
             if(id_proyecto){
                 $.ajax({
                     type:'POST',

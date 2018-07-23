@@ -1,13 +1,21 @@
+    
+    
+    
         <?php
 
         include('../../inc/config.php');
 
-        //Get all country data
+
         $id_proyecto = $_POST['id_proyecto'];
-        echo $id_proyecto;  ?>
+        $id_lider =   $_POST['id_lider'];
+
+   
+      ?>
         <form name="asign_actividad" method="POST" id="asign_actividad">
         <input name="id_proyecto" type="hidden" value="<?php echo $_POST['id_proyecto']; ?>">
         <input name="id_actividad" type="hidden" value="<?php echo $_POST['id_actividad']; ?>">
+        <input name="id_lider" type="hidden" value="<?php echo $_POST['id_lider']; ?>">
+
         <?php
         $query = $conn->query("SELECT
             estudiante.id_estudiante, estudiante.Nombre AS nombre_estudiante, equipo.id_equipo

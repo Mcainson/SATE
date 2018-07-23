@@ -4,7 +4,7 @@
 
 
 
-$sql = "SELECT * FROM mensaje WHERE id_usuario_envio=$id_usuario";
+$sql = "SELECT * FROM mensaje WHERE id_usuario_envio=$id_usuario order by fecha DESC";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
                 <th>Fecha</th>
               
                
-                <th>ACTION</th>
+                <th></th>
             
             </tr><?php
    
@@ -29,10 +29,9 @@ if ($result->num_rows > 0) {
              
                 <td><?php echo $row["asunto"] ?>
                 </td>
-               <td>  Fecha a añadir </td>
+               <td> <?php echo $row["fecha"] ?> </td>
                 <td>
-               <a href="#"><i class="material-icons">mail</i><a/>
-               <a href="#"><i class="material-icons">delete_forever</i><a/>
+               
             
               
                 

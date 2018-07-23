@@ -49,3 +49,5 @@ $comentario = $comentario;
 $id_actividad = $id_actividad;
 $stmt->execute();
 $conn->close();
+
+?>

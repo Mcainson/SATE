@@ -24,7 +24,7 @@ $id_estudiante = $_POST['id_estudiante'];
 $(document).ready(function (e) {
 
     var estatus = $('#estatus').val();
-    alert(estatus);
+  
  $("#form").on('submit',(function(e) {
     var parametros = $(this).serialize();
   e.preventDefault();
