@@ -1,6 +1,7 @@
 <?php
 
-$id_actividad = $_POST['id_actividad']
+$id_actividad = $_POST['id_actividad'];
+$id_estudiante = $_POST['id_estudiante'];
 
 ?>
 
@@ -9,6 +10,7 @@ $id_actividad = $_POST['id_actividad']
                 <input id="uploadImage" type="file" accept="image/*" name="fileToUpload" /><br>
              
                 <input class="input_text" type="hidden" name="id_actividad" value="<?php echo $id_actividad ?>"/><br>
+                <input class="input_text" type="hidden" name="id_estudiante" value="<?php echo $id_estudiante ?>"/>
                 <textarea class="input_text" name="comentario"></textarea><br>
               
             

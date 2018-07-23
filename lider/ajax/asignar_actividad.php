@@ -23,12 +23,13 @@ else {
 }
 
 
-$stmt = $conn->prepare("INSERT INTO comentario (comentario, id_actividad, fecha) VALUES (?, ?, ?)");
-$stmt->bind_param("sss", $comentario, $id_actividad, $fecha);
+$stmt = $conn->prepare("INSERT INTO comentario (comentario, id_actividad, fecha, $id_estudiante) VALUES (?, ?, ?,?)");
+$stmt->bind_param("sss", $comentario, $id_actividad, $fecha, $id_estudiante);
 
 // set parameters and execute
 $fecha = date('j-m-y');
 $comentario = $comentario;
 $id_actividad = $id_actividad;
+$id_estudiante = $id_estudiante;
 $stmt->execute();
 $conn->close();

@@ -9,19 +9,21 @@ $id_users = $_POST["Nombre"];
 $asunto = $_POST["asunto"];
 $mensaje = $_POST["mensaje"];
 $id_usuario = $_POST["id_usuario"];
+$fecha = date("Y-m-d H:i:s");
 
 // REGISTER MENSAJE
-$sql = $conn->prepare("INSERT INTO mensaje(id_usuario_envio, id_usuario_recibo, asunto, mensaje) VALUES (?,?,?,?)");
+$sql = $conn->prepare("INSERT INTO mensaje(id_usuario_envio, id_usuario_recibo, asunto, mensaje, fecha) VALUES (?,?,?,?,?)");
 
 
 
-$sql->bind_param("iiss", $id_usuario_envio, $id_usuario_recibo, $asunto, $mensaje);
+$sql->bind_param("iisss", $id_usuario_envio, $id_usuario_recibo, $asunto, $mensaje, $fecha);
 
 
     $id_usuario_envio = $id_usuario;
     $id_usuario_recibo = $id_users;
-    $asunto = $asunto;
+    $asunto = $asunto; 
     $mensaje = $mensaje;
+    $fecha = $fecha;
 
     $sql->execute();
    

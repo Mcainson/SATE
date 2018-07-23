@@ -14,13 +14,14 @@
 <?php
 
 $id_actividad = $_POST['id_actividad'];
+$id_estudiante = $_POST['id_estudiante'];
 require_once ("../../class/conexion.php");
 $obj= new conectar();
 $conn=$obj->conexion();
 
 
 //ACTIVIDAD EN FUNCCION DEL USUARIO CONECTADO
-$sql = "SELECT * FROM comentario order by fecha Desc Limit 10";
+$sql = "SELECT * FROM comentario where id_actividad = $id_actividad and id_estudiante != $id_estudiante order by fecha Desc Limit 10";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 
@@ -38,13 +39,12 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
      
         ?>
-              
-
+ 
   <tr>
 
     <td><?php echo $row["fecha"] ?> </td>
     <td><?php echo $row["comentario"] ?> </td>
-   
+  
   
   </tr>
   

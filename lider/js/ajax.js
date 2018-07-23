@@ -42,13 +42,16 @@ $('#editar').css({'display':'none'});
  
  });
 
+    //Modal comentario
+
    $(document).on('click','.comentario',function (id_editar) {
          id_actividad='';               
          id_actividad = $(this).children('#id_actividad').val();
+         id_estudiante = $(this).children('#id_estudiante').val();
              $.ajax({
              type:'POST',
              url:'ajax/comentario.php',
-             data:{id_actividad:id_actividad},                        
+             data:{id_actividad:id_actividad, id_estudiante:id_estudiante},                        
              success:function(data){
                  $('#aprobado').html(data);
                  $('#aprobar').css({'display':'block'});
@@ -141,12 +144,13 @@ $("#aprobacion").submit(function( event ) {
 
         $('#id_proyecto').on('change',function(){
             var id_proyecto = $(this).val();
-            alert(id_proyecto);
+            var id_estudiante = $('#id_estudiante').val();
+            alert(id_estudiante);
             if(id_proyecto){
                 $.ajax({
                     type:'POST',
                     url:'ajax/actividad.php',
-                    data:'id_proyecto='+id_proyecto,
+                    data: {id_proyecto, id_estudiante},
                     
                                     success:function(html){
                        

@@ -27,18 +27,20 @@ if(move_uploaded_file($tmp,$path))
 
 $id_actividad = $_POST['id_actividad'];
 $comentario = $_POST['comentario'];
+$id_estudiante = $_POST['id_estudiante'];
 
 //insert form data in the database
 $sql = "UPDATE actividades SET ruta='".$path."', estatus=2 WHERE id_actividades=$id_actividad";
 
 
-$stmt = $conn->prepare("INSERT INTO comentario (comentario, id_actividad, fecha) VALUES (?, ?, ?)");
-$stmt->bind_param("sss", $comentario, $id_actividad, $fecha);
+$stmt = $conn->prepare("INSERT INTO comentario (comentario, id_actividad, fecha, id_estudiante) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("sss", $comentario, $id_actividad, $fecha, $id_estudiante);
 
 // set parameters and execute
 $fecha = date('j-m-y');
 $comentario = $comentario;
 $id_actividad = $id_actividad;
+$id_estudiante = $id_estudiante;
 $stmt->execute();
 
 
@@ -49,10 +51,6 @@ if ($conn->query($sql) === TRUE) {
     echo "Error updating record: " . $conn->error;
 }
 
-
-
-echo $path;
-echo $_POST['comentario'];
 echo "El fichero es válido y se subió con éxito.\n";
 
 $conn->close();

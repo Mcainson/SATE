@@ -30,10 +30,11 @@ $( document ).ready(function() {
      // ASIGNAR EQUIPO A PROYECTO
      
    $("#confirm").submit(function( event ) {              
-    var parametros = $(this).serialize();     
+    var parametros = $(this).serialize();   
+    alert(parametros);  
       $.ajax({
               type: "POST",
-              url: 'ajax/proyecto.php',
+              url: 'ajax/proyecto2.php',
               data: parametros,
                beforeSend: function(objeto){
                   $("#resultados").html("Enviando...");

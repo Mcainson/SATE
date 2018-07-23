@@ -20,11 +20,9 @@ $id_profesor = $_POST['id_profesor'];
 <?php
 $query = $conn->query("SELECT DISTINCT equipo.id_equipo as id_equipo, equipo.nombre as Nombre
 FROM       
-
 equipo,
 estudiante        
 WHERE
-
 equipo.id_equipo = estudiante.id_equipo AND
 estudiante.id_profesor =$id_profesor AND
 id_proyecto=0");
@@ -32,7 +30,7 @@ id_proyecto=0");
 //Count total number of rows
 $rowCount = $query->num_rows;
 ?>
-<form id="confirm">
+<form id="confirm"  method="POST">
 <select  class="input_text" name="id_equipo" id="equipo" required>
 <option value="">Selecciona equipo</option>
 <?php
@@ -50,10 +48,10 @@ echo '<option value="">No hay mas equipo</option>';
 <option value="">Asigna lider de proyecto</option>
 
 </select>   </br>
-<input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $id_proyecto?>">
-<input type="hidden" name="id_profesor" id="id_profesor" value="<?php echo $id_profesor?>">
+<input type="text" name="id_proyecto" id="id_proyecto" value="<?php echo $id_proyecto?>">
+<input type="text" name="id_profesor" id="id_profesor" value="<?php echo $id_profesor?>">
 <button type="submit"> ACCEPTAR </button>
-<form>
+</form>
 <div id="resultados"></div>
 
 </fieldest>

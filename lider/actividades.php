@@ -33,6 +33,7 @@
         //Count total number of rows
         $rowCount = $query->num_rows;
         ?>
+            <input type="hidden" name="id_estudiante" id="id_estudiante" value="<?php echo  $id_estudiante?>"/>
         <select class="input_text" name="Nombre" id="id_proyecto" >
             <option value="">Selecciona proyecto</option>
             <?php
@@ -46,5 +47,7 @@
             ?>
         </select>
 
+<script src="js/ajax.js"></script>
 </body>
+
 </html>

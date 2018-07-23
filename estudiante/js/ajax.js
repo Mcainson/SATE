@@ -4,14 +4,15 @@ $( document ).ready(function() {
 
     $(document).on('click','.modalsubir',function () {
         alert('ok');
-        id_actividad=''
+        id_actividad='';
         id_actividad = $(this).children('#id_actividad').val();
-        
+        id_estudiante='';
+        id_estudiante = $(this).children('#id_estudiante').val();        
 
      $.ajax({
          type:'POST',
          url:'ajax/subir.php',
-         data:{id_actividad:id_actividad},
+         data:{id_actividad:id_actividad, id_estudiante:id_estudiante},
          
          success:function(data){
              $('#result').html(data);
@@ -26,12 +27,14 @@ $(document).on('click','.modalcomentario',function () {
 
         id_actividad=''
         id_actividad = $(this).children('#id_actividad').val();
+        id_estudiante=''
+        id_estudiante = $(this).children('#id_estudiante').val();
   
 
      $.ajax({
          type:'POST',
          url:'ajax/comentario.php',
-         data:{id_actividad:id_actividad},
+         data:{id_actividad:id_actividad, id_estudiante:id_estudiante},
          
          success:function(data){
              $('#result').html(data);

@@ -21,7 +21,7 @@
         $rowCount = $query->num_rows;
         ?>
 
-        <select class="input_text" name="Nombre" id="id_proyecto" required>
+        <select class="input_text" name="Nombre" id="id_encargado" required>
         <option value="">Selecciona encargado</option>
         <?php
         if($rowCount > 0){

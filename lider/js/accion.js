@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     $('.encargado').on('change',function(){
         var cambiar= $(this).val();

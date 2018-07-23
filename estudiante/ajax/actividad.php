@@ -21,7 +21,7 @@ $obj= new conectar();
 $conn=$obj->conexion();
 
 $id_proyecto = $_POST["id_proyecto"];
-echo $id_proyecto;
+
 
 $id_estudiante = $_POST['id_estudiante'];
 //ACTIVIDAD EN FUNCCION DEL USUARIO CONECTADO
@@ -54,7 +54,7 @@ if ($result->num_rows > 0) {
                     $estatus = 'Actividad subida';
                 }
                 if ($row["estatus"]==3){
-                    $estatus = 'A refaire';
+                    $estatus = 'A Corregir';
                 }
 
                 if ($row["estatus"]==4){
@@ -88,6 +88,7 @@ if ($result->num_rows > 0) {
 
                <a class="modalsubir" href="#"><i class="material-icons">attachment</i>
                <input type="hidden" id="id_actividad" value="<?php echo $row["id_actividades"] ?>"/>
+               <input type="hidden" id="id_estudiante" value="<?php echo $id_estudiante ?>"/>
                
                <a/>
                <?php }?>
@@ -97,6 +98,9 @@ if ($result->num_rows > 0) {
               
                 <a class="modalcomentario" href="#"><i class="material-icons">insert_comment</i>
                 <input type="hidden" id="id_actividad" value="<?php echo $row["id_actividades"] ?>"/>
+                <input type="hidden" id="id_estudiante" value="<?php echo $id_estudiante ?>"/>
+            
+               
                 </a>      
                 </td>
                

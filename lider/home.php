@@ -31,7 +31,7 @@
         $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 
         echo $row["Nombre"];
-        
+        $id_estudiante = $row["id_estudiante"];;
 
 
 

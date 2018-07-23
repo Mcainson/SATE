@@ -9,6 +9,7 @@ $id_estudiante = $_POST["nombre_lider"];
 $asunto = $_POST["asunto"];
 $mensaje = $_POST["mensaje"];
 $id_usuario = $_POST["id_usuario"];
+$fecha = date("Y-m-d H:i:s");
 
 
     // BUSCAR ID DEL USUARIO QUE VA A RECIBIR EL MENSAJE
@@ -20,16 +21,17 @@ $id_usuario = $_POST["id_usuario"];
     $id_users =  $row["id_users"];
    
 // REGISTER ESTUDIANTE
-$sql = $conn->prepare("INSERT INTO mensaje(id_usuario_envio, id_usuario_recibo, asunto, mensaje) VALUES (?,?,?,?)");
+$sql = $conn->prepare("INSERT INTO mensaje(id_usuario_envio, id_usuario_recibo, asunto, mensaje, fecha) VALUES (?,?,?,?,?)");
 
 
 
-$sql->bind_param("iiss", $id_usuario_envio, $id_usuario_recibo, $asunto, $mensaje);
+$sql->bind_param("iisss", $id_usuario_envio, $id_usuario_recibo, $asunto, $mensaje, $fecha);
 
 
     $id_usuario_envio = $id_usuario;
     $id_usuario_recibo = $id_users;
     $asunto = $asunto;
+    $fecha = $fecha;
     $mensaje = $mensaje;
 
     $sql->execute();

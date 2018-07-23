@@ -11,8 +11,8 @@ $aprobar = $_POST['aprobar'];
 
 
 
-if ($aprobar=1){
-$sql = "UPDATE actividades SET estatus=3 WHERE id_actividades=$id_actividad";
+if ($aprobar==1){
+$sql = "UPDATE actividades SET estatus=4 WHERE id_actividades=$id_actividad";
 
 if ($conn->query($sql) === TRUE) {
     echo "Actividad Asignada";
@@ -23,8 +23,8 @@ else {
 
 }
 
-if ($aprobar=2){
-    $sql = "UPDATE actividades SET estatus=4 WHERE id_actividades=$id_actividad";
+if ($aprobar==2){
+    $sql = "UPDATE actividades SET estatus=3 WHERE id_actividades=$id_actividad";
     if ($conn->query($sql) === TRUE) {
         echo "Actividad Asignada";
     }

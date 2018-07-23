@@ -22,14 +22,15 @@
         profesor.id_users = users.id_users AND
         estudiante.id_estudiante = $id_estudiante
         ;";
+
         $result2 = $conn->query($query);
         var_dump($result2);
         $row1=mysqli_fetch_array($result2,MYSQLI_ASSOC);
         $IdUsuarioMaes =  $row1["id_users"];
     
-        //SELECCIONA LOS ESTUDIANTES DEL MISMO GRUPO QUEEL LIDER
+        //SELECCIONA LOS ESTUDIANTES DEL MISMO GRUPO QUEL LIDER
         $sql = $conn->query("SELECT
-        users.id_users, estudiante.id_estudiante as id_estudiante, estudiante.Nombre AS nombre_estudiante
+        users.id_users as id_users, estudiante.id_estudiante as id_estudiante, estudiante.Nombre AS nombre_estudiante
  
      FROM 
          estudiante,equipo, users
@@ -39,6 +40,7 @@
         //Count total number of rows
         $rowCount = $sql->num_rows;
         ?>
+
         <form name="enviarmensaje" id="enviarmensaje" >
     <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
             <select  class="input_text" name="Nombre" id="id_equipo" required>
@@ -51,7 +53,7 @@
         <?php
                 if($rowCount > 0){
                     while($row = $sql->fetch_assoc()){ 
-                        echo '<option value="'.$row['id_estudiante'].'">'.$row['nombre_estudiante'].'</option>';
+                        echo '<option value="'.$row['id_users'].'">'.$row['nombre_estudiante'].'</option>';
                     }
                 }else{
                     echo '<option value="">No hay mas equipo</option>';
