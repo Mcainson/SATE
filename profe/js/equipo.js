@@ -1,6 +1,6 @@
 
      $(document).ready(function(){
-
+            console.log('edobrasiiiiiil');
         $(".delete_proyecto" ).click(function() {
             alert('se borra');
         var id_eliminar= $(this).children().val();
@@ -78,7 +78,7 @@
 
       $(document).on('change','#equipo',function () {
             var id_equipo = $(this).val();
-            alert(id_equipo);
+  
             if(id_equipo){
                 $.ajax({
                     type:'POST',
@@ -97,6 +97,8 @@
             }
         
             });
-          
+
+        
+         
 
     });

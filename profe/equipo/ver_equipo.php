@@ -1,5 +1,3 @@
-
-
 <?php
 
 
@@ -44,14 +42,38 @@ if ($result->num_rows > 0) {
                 
                 <?php
     }
-    
+                include('modals/verequipo.php');
     ?>
     </table>
+    
     <?php 
 } else {
     echo "Todavia no hay actividades para este proyecto";
 }
 
-
 ?>
+        <script>
+            $(document).on('click','#ver_project',function () {        
+                alert('listo papa');
+                   id_equipo='';
+                   id_equipo = $(this).children('#id_equipo').val();	
+                    $.ajax({
+                        type:'POST',
+                        url:'ajax/ver_equipo.php',
+                        data:{id_equipo},                
+                        success:function(data){
+                            $('#rezilta').html(data);
+                            $('#verequipo').css({'display':'block'});                  
+                        }
+                    }); 
+                
+            });
+
+              $(document).on('click','.close',function () {
         
+        $('#verequipo').css({'display':'none'});
+          
+        }); 
+        
+        
+        </script>

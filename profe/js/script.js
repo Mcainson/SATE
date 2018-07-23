@@ -21,9 +21,7 @@ function load(page){
 }
 
 $("#add_estudiante").submit(function( event ) {
-  var parametros = $(this).serialize();
-  var id_profe = 1;
-  
+  var parametros = $(this).serialize();  
     $.ajax({
             type: "POST",
             url: "ajax/guardar_estudiante.php",

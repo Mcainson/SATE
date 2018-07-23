@@ -29,7 +29,7 @@
                     <input class="input_text" type="text" id="apellidos" name="apellidos" placeholder="Apellidos del estudiante" required><br>
                     <input class="input_text" type="email" id="correo" name="correo" placeholder="Correo del estudiante" required><br>
                     <input class="input_text" type="password" id="contrasena" name="contrasena" placeholder="Inserta contrasena" required><br>
-                    <input class="input_text" type="hidden" id="id_profe" name="id_profe" value="  <?php   echo $_SESSION['id_usuario'];  ?>" placeholder="Correo del estudiante"><br>
+                    <input class="input_text" type="hidden" id="id_profe" name="id_profe" value="  <?php   echo $id_profesor;  ?>"><br>
                   
                 
                 </div>

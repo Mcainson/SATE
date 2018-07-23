@@ -18,6 +18,7 @@ function openProyecto(evt, tabName) {
 
 $(document).ready(function(){
     // SELECCIONAR ESTUDIANTE EN FUNCCION DEL EQUIPO AL QUE PERTENECE
+    console.log('eeeeeeee');
     $('#id_equipo').on('change',function(){
         var id_equipo = $(this).val();
         if(id_equipo){

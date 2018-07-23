@@ -72,8 +72,13 @@
 							<td><?php echo $nombre;?></td>
 							<td ><?php echo $descripcion;?></td>
 							<td ><?php echo $fecha_entrega;?></td>
-							<td > <a href="<?php echo 'sate/'.$row["ruta"] ?>"><i class="material-icons">archive</i><a/></td>
-						
+							
+							<td>
+							<?php if ($row["ruta"] != 0){ ?>
+							 <a href="<?php echo 'sate/'.$row["ruta"] ?>"><i class="material-icons">archive</i><a/>
+							 <?php }?>
+							</td>
+							 
 							<td>
 							<a class="editar_id" href="#"><i class="material-icons"  title="Editar">&#xE254;</i>
 							<input type="hidden" id="id_editar" value="<?php echo $id;?>"> 
@@ -83,6 +88,7 @@
 							<i class="material-icons"  title="Eliminar">&#xE872;</i>
 							
 							</a>
+							
 
 							<a href="#" id="asign_project"><i class="material-icons">assignment</i>
 							<input id="id_proyecto" type="hidden" value=" <?php echo $id ?>">
