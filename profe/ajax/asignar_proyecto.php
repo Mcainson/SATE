@@ -13,7 +13,7 @@ if ($result->num_rows == 0) {
 
 ?>
 
-<div><button id="asign_random" type"button">ASIGNAR RANDOM PROJECT
+<div><button id="asign_random" type"button">ASIGNAR EQUIPO RANDOM
 <input type="hidden" name="id_proyecto" id="id_proyecto" value="<?php echo $id_proyecto?>">
 <input type="hidden" name="id_profesor" id="id_profesor" value="<?php echo $id_profesor?>">
 
@@ -35,6 +35,9 @@ if ($result->num_rows == 0) {
        data:{id_proyecto, id_profesor},                
        success:function(data){
            $('#resultados').html(data);
+           setTimeout(function(){// wait for 5 secs(2)
+              location.reload(); // then reload the page.(3)
+         }, 1000); 
                          
        }
    });  
@@ -42,7 +45,7 @@ if ($result->num_rows == 0) {
 });
 </script>
 <fieldset>
-<legend> ASIGN MANUAL PROJECT </legend>
+<legend> ASIGN EQUIPO MANUAL </legend>
 
 
 <?php

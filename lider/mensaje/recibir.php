@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT * FROM mensaje WHERE id_usuario_recibo=$id_usuario";
+$sql = "SELECT * FROM mensaje WHERE id_usuario_recibo=$id_usuario order by fecha DESC";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) { 
 ?>  <table>

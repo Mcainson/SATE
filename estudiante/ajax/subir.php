@@ -40,6 +40,9 @@ $(document).ready(function (e) {
     $("#err").html("");
     $("#err").html(data);
     $('#upload').hide();
+    setTimeout(function(){// wait for 5 secs(2)
+              location.reload(); // then reload the page.(3)
+         }, 1000); 
    
       },
      error: function(e){

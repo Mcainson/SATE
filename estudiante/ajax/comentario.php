@@ -21,7 +21,7 @@ $conn=$obj->conexion();
 
 
 //ACTIVIDAD EN FUNCCION DEL USUARIO CONECTADO
-$sql = "SELECT * FROM comentario where id_actividad = $id_actividad and id_estudiante != $id_estudiante order by fecha Desc Limit 10";
+$sql = "SELECT DISTINCT fecha, comentario FROM comentario where id_actividad = $id_actividad and id_estudiante != $id_estudiante order by fecha Desc Limit 10";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 

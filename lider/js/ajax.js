@@ -33,10 +33,11 @@ $('#editar').css({'display':'none'});
  $(document).on('click','.aprobado',function (id_editar) {
          id_actividad='';               
          id_actividad = $(this).children('#id_actividad').val();
+         id_estudiante = $(this).children('#id_estudiante').val();
              $.ajax({
              type:'POST',
              url:'ajax/aprobacion.php',
-             data:{id_actividad:id_actividad},                        
+             data:{id_actividad:id_actividad, id_estudiante:id_estudiante},                        
              success:function(data){
                  $('#aprobado').html(data);
                  $('#aprobar').css({'display':'block'});
@@ -138,6 +139,9 @@ $("#aprobacion").submit(function( event ) {
     success: function(datos){
 
     $("#resultados").html(datos);
+    setTimeout(function(){// wait for 5 secs(2)
+        location.reload(); // then reload the page.(3)
+   }, 1000); 
 
     }
     });

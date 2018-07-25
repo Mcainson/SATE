@@ -90,6 +90,7 @@ if ($result->num_rows > 0) {
                 if ($row["estatus"]==2){?>    
                    <a class="aprobado" href="#"><i class="material-icons">done</i>                   
                         <input type="hidden" id="id_actividad" value="<?php echo $row["id_actividades"] ;?>">
+                        <input type="hidden" id="id_estudiante" value="<?php echo $id_estudiante ;?>">
                    </a>
                    <a href="<?php echo 'sate/'.$row["ruta"] ?>" download><i class="material-icons">archive</i><a/>
             <?php 

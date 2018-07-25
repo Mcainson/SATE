@@ -1,6 +1,6 @@
 
 <fieldset>
-    <?php echo $id_usuario;?>
+ 
     <legend>Datos del proyecto</legend>
     <form name="enviarmensaje" id="enviarmensaje">
     <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
@@ -12,7 +12,7 @@
             $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
             $id_equipo =  $row["id_equipo"];
 
-            echo $id_equipo;
+         
 
              // SELECCIONA EL LIDER DEL equipo DEL USUARIO CONECTADO
 

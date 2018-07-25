@@ -41,7 +41,9 @@ $( document ).ready(function() {
                 },
               success: function(datos){
               $("#resultados").html(datos);
-              $("#confirm")[0].reset();
+              setTimeout(function(){// wait for 5 secs(2)
+                location.reload(); // then reload the page.(3)
+           }, 1000); 
             }
       });
     event.preventDefault();
